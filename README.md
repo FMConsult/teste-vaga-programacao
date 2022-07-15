@@ -16,7 +16,7 @@ Você deve desenvolver uma tela de gerenciamento de cadastros de clientes, confo
 
 ## API e BD
 
-Será um diferencial se conseguir implementar o mecanismo de API e gravação em BD
+Não é obrigatório, mas será um diferencial se conseguir implementar o mecanismo de API e gravação em BD
 
 ## Entrega
 
