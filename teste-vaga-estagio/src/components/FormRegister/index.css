@@ -1,0 +1,65 @@
+.FormRegister_container{
+    padding: 32px;
+    height: auto;
+}
+
+.FormRegister_container h3 {
+    text-align: center;
+    font-size: 26px;
+}
+
+.FormRegister_container input{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 7px;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.FormRegister_empresaData{
+    display: flex;
+    align-items: center;
+    
+}
+
+.FormRegister_buttonGroup{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px
+} 
+
+.reset-field{
+    color: white;
+    background-color: rgb(192, 192, 192);
+    border: 1px solid rgb(192, 192, 192);
+    padding: 10px;
+    border-radius: 5px;
+    transition: .4s ease-in-out;
+}
+.reset-field:hover{
+    color: black;
+    background: transparent;
+    border: 1px solid rgb(192, 192, 192);
+}
+
+.submit{
+    color: white;
+    background-color: rgb(19, 74, 177);
+    border: 1px solid rgb(19, 74, 177);
+    padding: 10px;
+    border-radius: 5px;
+    transition: .4s ease-in-out;
+    margin-left: 8px;
+}
+
+.submit:hover{
+    color: black;
+    background: transparent;
+    border: 1px solid rgb(19, 74, 177);
+}
+
+table, td, th {
+    border: 1px solid black;
+    padding: 10px;
+}
