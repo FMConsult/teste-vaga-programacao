@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./Button";
-import {
-  FormularioRegistro,
-  DadosEmpresa,
-  DadosEndereco,
-} from "./FormRegisterStyled";
 import { Input } from "./Input";
 import "./index.css";
 
@@ -44,16 +39,16 @@ export const FormRegister = () => {
       });
   };
 
-  const clearFields = () =>{
-    setBairro("")
-    setCep("")
-    setCidade("")
-    setCnpj("")
-    setEndereco("")
-    setNome("")
-    setNumero("")
-    setUf("")
-  }
+  const clearFields = () => {
+    setBairro("");
+    setCep("");
+    setCidade("");
+    setCnpj("");
+    setEndereco("");
+    setNome("");
+    setNumero("");
+    setUf("");
+  };
 
   useEffect(() => {
     // PEGANDO OS DADOS QUE ESTÃO NO FIRESTORE EM TEMPO REAL
@@ -66,8 +61,9 @@ export const FormRegister = () => {
 
   return (
     <>
-      <FormularioRegistro onSubmit={cadastrarEmpresa}>
-        <DadosEmpresa>
+      <form onSubmit={cadastrarEmpresa} className="FormRegister_container">
+        <h3>Formulário de Cadastro</h3>
+        <div className="FormRegister_empresaData">
           <Input
             text="CNPJ"
             type="number"
@@ -86,9 +82,9 @@ export const FormRegister = () => {
             value={nome}
             onChange={(event) => setNome(event.target.value)}
           />
-        </DadosEmpresa>
+        </div>
 
-        <DadosEndereco className="dadosEndereco">
+        <div>
           <Input
             text="CEP"
             type="number"
@@ -143,20 +139,26 @@ export const FormRegister = () => {
             value={cidade}
             onChange={(event) => setCidade(event.target.value)}
           />
-        </DadosEndereco>
-
-        <Button type="reset" text="Resetar campos" onClick={clearFields}/>
-        <Button type="submit" text="Cadastrar empresa" />
-      </FormularioRegistro>
+        </div>
+        <div className="FormRegister_buttonGroup">
+          <button type="reset" onClick={clearFields} className="reset-field">
+            Resetar campos
+          </button>
+          <button type="submit" className="submit">
+            Cadastrar empresa
+          </button>
+        </div>
+      </form>
 
       <div>
         <ul>
-            {/* MAPEANDO UMA LISTA COM OS DADOS VINDO DO BD */}
+          {/* MAPEANDO UMA LISTA COM OS DADOS VINDO DO BD */}
           {empresas.map((empresa) => {
             return (
               <div key={empresa.id}>
-                <li>CNPJ: {empresa.cnpj}</li>
-                <li>Nome da empresa: {empresa.nome}</li>
+                <li>
+                  Nome da empresa: {empresa.nome} CNPJ: {empresa.cnpj}
+                </li>
               </div>
             );
           })}

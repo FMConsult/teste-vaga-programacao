@@ -14,7 +14,7 @@ export const Input = ({
   return (
     <div>
       <label htmlFor={name}>{text}:</label>
-      <InputCustom
+      <input
         type={type}
         id={id}
         name={name}
