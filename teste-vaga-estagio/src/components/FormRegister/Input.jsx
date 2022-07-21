@@ -1,5 +1,4 @@
 import React from "react";
-import { InputCustom } from "./FormRegisterStyled";
 import "./index.css";
 
 export const Input = ({

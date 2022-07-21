@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "./Button";
 import { Input } from "./Input";
 import "./index.css";
 
@@ -48,6 +47,7 @@ export const FormRegister = () => {
     setNome("");
     setNumero("");
     setUf("");
+    alert("Campos resetados com sucesso!")
   };
 
   useEffect(() => {
@@ -151,18 +151,28 @@ export const FormRegister = () => {
       </form>
 
       <div>
-        <ul>
+        <h3>Empresas cadastradas</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>CNPJ</th>
+              <th>Nome da empresa</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
           {/* MAPEANDO UMA LISTA COM OS DADOS VINDO DO BD */}
           {empresas.map((empresa) => {
             return (
-              <div key={empresa.id}>
-                <li>
-                  Nome da empresa: {empresa.nome} CNPJ: {empresa.cnpj}
-                </li>
-              </div>
+              <tbody key={empresa.id}>
+                <tr>
+                  <td>{empresa.cnpj}</td>
+                  <td>{empresa.nome}</td>
+                  <td><a href="https://www.youtube.com/channel/UCEZgWavfBlTWV-nmxnvdY_g" target="_blank" rel="noopener noreferrer">Edit</a></td>
+                </tr>
+              </tbody>
             );
           })}
-        </ul>
+        </table>
       </div>
     </>
   );

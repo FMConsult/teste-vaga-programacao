@@ -1,7 +1,6 @@
 .FormRegister_container{
     padding: 32px;
     height: auto;
-    background-color: rgb(140, 140, 139);
 }
 
 .FormRegister_container h3 {
@@ -24,18 +23,6 @@
     
 }
 
-.cnpjField{
-    display: flex;
-    width: 80%;
-}
-
-.nameField{
-    display: flex;
-    border: 1px solid black;
-    border-radius: 4px;
-    padding: 5px;
-}
-
 .FormRegister_buttonGroup{
     display: flex;
     justify-content: flex-end;
@@ -51,6 +38,7 @@
     transition: .4s ease-in-out;
 }
 .reset-field:hover{
+    color: black;
     background: transparent;
     border: 1px solid rgb(192, 192, 192);
 }
@@ -66,6 +54,12 @@
 }
 
 .submit:hover{
+    color: black;
     background: transparent;
     border: 1px solid rgb(19, 74, 177);
+}
+
+table, td, th {
+    border: 1px solid black;
+    padding: 10px;
 }
