@@ -7,11 +7,12 @@ import {
 } from "./FormRegisterStyled";
 import { Input } from "./Input";
 import "./index.css";
-import { db } from "../../service/firebase";
 
+import { db } from "../../service/firebase";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 
 export const FormRegister = () => {
+  // VARIÁVEIS DE ESTADO
   const [cnpj, setCnpj] = useState("");
   const [nome, setNome] = useState("");
   const [cep, setCep] = useState("");
@@ -24,18 +25,6 @@ export const FormRegister = () => {
   const empresasCollRef = collection(db, "empresas");
 
   const cadastrarEmpresa = async (event) => {
-    // event.preventDefault();
-    console.log({
-      bairro: bairro,
-      cep,
-      cidade,
-      cnpj,
-      endereco,
-      nome,
-      numero,
-      uf,
-    });
-
     // ADICIONANDO UM NOVO DOCUMENTO COM ID ALEATORIO PASSANDO TODOS OS DADOS COLETADOS
     const docRef = await addDoc(collection(db, "empresas"), {
       bairro: bairro,
@@ -55,13 +44,25 @@ export const FormRegister = () => {
       });
   };
 
+  const clearFields = () =>{
+    setBairro("")
+    setCep("")
+    setCidade("")
+    setCnpj("")
+    setEndereco("")
+    setNome("")
+    setNumero("")
+    setUf("")
+  }
+
   useEffect(() => {
-    const getEmpresas = async () =>{
-        const data = await getDocs(empresasCollRef)
-        setEmpresas(data.docs.map((doc)=>({...doc.data(), id: doc.id})))
-    }
-    getEmpresas()
-  },[]);
+    // PEGANDO OS DADOS QUE ESTÃO NO FIRESTORE EM TEMPO REAL
+    const getEmpresas = async () => {
+      const data = await getDocs(empresasCollRef);
+      setEmpresas(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getEmpresas();
+  }, []);
 
   return (
     <>
@@ -144,11 +145,13 @@ export const FormRegister = () => {
           />
         </DadosEndereco>
 
-        <Button type="reset" text="Resetar campos" />
+        <Button type="reset" text="Resetar campos" onClick={clearFields}/>
         <Button type="submit" text="Cadastrar empresa" />
       </FormularioRegistro>
+
       <div>
         <ul>
+            {/* MAPEANDO UMA LISTA COM OS DADOS VINDO DO BD */}
           {empresas.map((empresa) => {
             return (
               <div key={empresa.id}>
