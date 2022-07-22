@@ -39,4 +39,17 @@ export class CadastroService {
     const empresa = await this.EmpresaRepository.findAll();
     return empresa;
   }
+  async update({ id, cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade }: IRequest) {
+    const listField = { id, cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade };
+
+    const verify = valida(listField);
+
+    if (verify) {
+      throw new ErrorApp(`Campo em branco ${verify}`, 401);
+    }
+
+    const empresaUpdate = await this.EmpresaRepository.update({ id, cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade });
+
+    return empresaUpdate;
+  }
 }
