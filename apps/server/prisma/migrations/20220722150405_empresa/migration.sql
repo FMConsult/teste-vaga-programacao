@@ -2,7 +2,7 @@
 CREATE TABLE "cadastroEmpresa" (
     "id" SERIAL NOT NULL,
     "cnpj" TEXT NOT NULL,
-    "nomeDaEmpressa" TEXT NOT NULL,
+    "nomeDaEmpresa" TEXT NOT NULL,
     "cep" TEXT NOT NULL,
     "endereco" TEXT NOT NULL,
     "numero" TEXT NOT NULL,
