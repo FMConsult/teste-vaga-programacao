@@ -18,4 +18,15 @@ export class Cadastro {
 
     return res.status(200).json(response);
   }
+
+  async update(req: Request, res: Response) {
+    const { id } = req.params;
+
+    const { cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade } = req.body;
+    const cadastroService = container.resolve(CadastroService);
+    const idNumber = Number(id);
+    const response = await cadastroService.update({ id: idNumber, bairro, cep, cidade, cnpj, endereco, nomeDaEmpressa, numero, uf });
+
+    return res.status(200).json(response);
+  }
 }
