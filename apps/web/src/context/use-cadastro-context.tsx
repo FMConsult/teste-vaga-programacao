@@ -55,7 +55,9 @@ export const CadastroStorage = ({ children }: UseCadastroProviderProps) => {
   }
 
   return (
-    <useCadastroContext.Provider value={{ cadastros, cadastro }}>
+    <useCadastroContext.Provider
+      value={{ cadastros, cadastro, updateCadastro }}
+    >
       {children}
     </useCadastroContext.Provider>
   );
