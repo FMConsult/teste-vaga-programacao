@@ -4,11 +4,11 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev nodemon src/shared/infra/http/server.ts",
+    "dev": "cross-env NODE_ENV=dev nodemon src/server.ts",
     "prebuild": "rimraf dist",
     "build": "swc src -d dist --no-swcrc --config-file=./.build.swcrc",
     "prestart": "yarn build && prisma generate && prisma migrate deploy && prisma db seed",
-    "start": "node dist/shared/infra/http/server.js",
+    "start": "node dist/server.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "pretest": "prisma migrate reset --force --skip-seed --schema ./src/shared/infra/prisma/schema.test.prisma",
