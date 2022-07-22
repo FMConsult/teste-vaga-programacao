@@ -1,8 +1,10 @@
 import { ErrorApp } from '~/ErrorApp';
 import { IEmpresaRepository } from '~/repositories/IEmpresa';
+import { valida } from '~/utils/validacoes';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
+  id?: number;
   cnpj: string;
   nomeDaEmpressa: string;
   cep: string;
@@ -20,37 +22,12 @@ export class CadastroService {
     private EmpresaRepository: IEmpresaRepository
   ) {}
   async create({ cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade }: IRequest) {
-    console.log(bairro, cep, cidade, cnpj, endereco, nomeDaEmpressa, numero, uf);
-    if (!cnpj) {
-      throw new ErrorApp('cnpj em branco');
-    }
+    const listField = { cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade };
 
-    if (!nomeDaEmpressa) {
-      throw new ErrorApp('nome Da Empressa em branco');
-    }
+    const verify = valida(listField);
 
-    if (!cep) {
-      throw new ErrorApp('cep em branco');
-    }
-
-    if (!endereco) {
-      throw new ErrorApp('endereco em branco');
-    }
-
-    if (!numero) {
-      throw new ErrorApp('numero em branco');
-    }
-
-    if (!bairro) {
-      throw new ErrorApp('bairro em branco');
-    }
-
-    if (!uf) {
-      throw new ErrorApp('uf em branco');
-    }
-
-    if (!cidade) {
-      throw new ErrorApp('cidade em branco');
+    if (verify) {
+      throw new ErrorApp(`Campo em branco ${verify}`, 401);
     }
 
     const empresa = await this.EmpresaRepository.create({ cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade });
