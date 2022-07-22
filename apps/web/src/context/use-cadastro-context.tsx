@@ -29,6 +29,31 @@ export const CadastroStorage = ({ children }: UseCadastroProviderProps) => {
     setCadastros((prevent) => [...prevent, data]);
   }
 
+  async function updateCadastro(id: number, values: CadastroData) {
+    const { data } = await api.put(`/cadastro/${id}`, {
+      ...values,
+    });
+
+    const update = cadastros.map((cadastro) => {
+      if (cadastro.id === id) {
+        return {
+          ...cadastro,
+          cnpj: values.cnpj,
+          nomeDaEmpresa: values.nomeDaEmpresa,
+          cep: values.cep,
+          endereco: values.endereco,
+          numero: values.numero,
+          bairro: values.bairro,
+          uf: values.uf,
+          cidade: values.cidade,
+        };
+      }
+      return cadastro;
+    });
+
+    setCadastros(update);
+  }
+
   return (
     <useCadastroContext.Provider value={{ cadastros, cadastro }}>
       {children}
