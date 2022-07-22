@@ -6,7 +6,7 @@ import { inject, injectable } from 'tsyringe';
 interface IRequest {
   id?: number;
   cnpj: string;
-  nomeDaEmpressa: string;
+  nomeDaEmpresa: string;
   cep: string;
   endereco: string;
   numero: string;
@@ -21,8 +21,8 @@ export class CadastroService {
     @inject('EmpresaRepository')
     private EmpresaRepository: IEmpresaRepository
   ) {}
-  async create({ cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade }: IRequest) {
-    const listField = { cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade };
+  async create({ cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade }: IRequest) {
+    const listField = { cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade };
 
     const verify = valida(listField);
 
@@ -30,7 +30,7 @@ export class CadastroService {
       throw new ErrorApp(`Campo em branco ${verify}`, 401);
     }
 
-    const empresa = await this.EmpresaRepository.create({ cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade });
+    const empresa = await this.EmpresaRepository.create({ cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade });
 
     return empresa;
   }
@@ -39,8 +39,8 @@ export class CadastroService {
     const empresa = await this.EmpresaRepository.findAll();
     return empresa;
   }
-  async update({ id, cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade }: IRequest) {
-    const listField = { id, cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade };
+  async update({ id, cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade }: IRequest) {
+    const listField = { id, cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade };
 
     const verify = valida(listField);
 
@@ -48,7 +48,7 @@ export class CadastroService {
       throw new ErrorApp(`Campo em branco ${verify}`, 401);
     }
 
-    const empresaUpdate = await this.EmpresaRepository.update({ id, cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade });
+    const empresaUpdate = await this.EmpresaRepository.update({ id, cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade });
 
     return empresaUpdate;
   }

@@ -7,11 +7,11 @@ export class EmpresaRepository implements IEmpresaRepository {
     const findAll = await prisma.cadastroEmpresa.findMany();
     return findAll;
   }
-  async create({ cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade }: ICadastroEmpresa): Promise<ICadastroEmpresa> {
+  async create({ cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade }: ICadastroEmpresa): Promise<ICadastroEmpresa> {
     const createEmpresa = await prisma.cadastroEmpresa.create({
       data: {
         cnpj,
-        nomeDaEmpressa,
+        nomeDaEmpresa,
         cep,
         endereco,
         numero,
@@ -22,14 +22,14 @@ export class EmpresaRepository implements IEmpresaRepository {
     });
     return createEmpresa;
   }
-  async update({ id, cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade }: ICadastroEmpresa): Promise<ICadastroEmpresa> {
+  async update({ id, cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade }: ICadastroEmpresa): Promise<ICadastroEmpresa> {
     const updateEmpresa = await prisma.cadastroEmpresa.update({
       where: {
         id,
       },
       data: {
         cnpj,
-        nomeDaEmpressa,
+        nomeDaEmpresa,
         cep,
         endereco,
         numero,

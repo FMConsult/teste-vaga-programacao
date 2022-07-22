@@ -1,7 +1,7 @@
 export interface ICadastroEmpresa {
   id?: number;
   cnpj: string;
-  nomeDaEmpressa: string;
+  nomeDaEmpresa: string;
   cep: string;
   endereco: string;
   numero: string;
@@ -10,7 +10,7 @@ export interface ICadastroEmpresa {
   cidade: string;
 }
 export interface IEmpresaRepository {
-  create({ cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade }: ICadastroEmpresa): Promise<ICadastroEmpresa>;
-  update({ cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade }: ICadastroEmpresa): Promise<ICadastroEmpresa>;
+  create({ cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade }: ICadastroEmpresa): Promise<ICadastroEmpresa>;
+  update({ cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade }: ICadastroEmpresa): Promise<ICadastroEmpresa>;
   findAll(): Promise<ICadastroEmpresa[]>;
 }

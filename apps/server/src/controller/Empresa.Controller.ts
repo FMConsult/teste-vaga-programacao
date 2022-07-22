@@ -5,9 +5,9 @@ import { CadastroService } from '../service/Empresa.Service';
 
 export class Cadastro {
   async create(req: Request, res: Response) {
-    const { cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade } = req.body;
+    const { cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade } = req.body;
     const cadastroService = container.resolve(CadastroService);
-    const response = await cadastroService.create({ bairro, cep, cidade, cnpj, endereco, nomeDaEmpressa, numero, uf });
+    const response = await cadastroService.create({ bairro, cep, cidade, cnpj, endereco, nomeDaEmpresa, numero, uf });
 
     return res.status(201).json(response);
   }
@@ -22,10 +22,10 @@ export class Cadastro {
   async update(req: Request, res: Response) {
     const { id } = req.params;
 
-    const { cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade } = req.body;
+    const { cnpj, nomeDaEmpresa, cep, endereco, numero, bairro, uf, cidade } = req.body;
     const cadastroService = container.resolve(CadastroService);
     const idNumber = Number(id);
-    const response = await cadastroService.update({ id: idNumber, bairro, cep, cidade, cnpj, endereco, nomeDaEmpressa, numero, uf });
+    const response = await cadastroService.update({ id: idNumber, bairro, cep, cidade, cnpj, endereco, nomeDaEmpresa, numero, uf });
 
     return res.status(200).json(response);
   }
