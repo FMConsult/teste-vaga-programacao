@@ -11,4 +11,11 @@ export class Cadastro {
 
     return res.status(201).json(response);
   }
+
+  async getAll(req: Request, res: Response) {
+    const cadastroService = container.resolve(CadastroService);
+    const response = await cadastroService.getAll();
+
+    return res.status(200).json(response);
+  }
 }
