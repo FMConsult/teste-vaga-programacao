@@ -1,6 +1,6 @@
-import { ICadastroEmpresa } from "~/repositories/IEmpresa";
+import { ICadastroEmpresa } from '~/repositories/IEmpresa';
 
-export function valida(listField:ICadastroEmpresa ) {
+export function valida(listField: ICadastroEmpresa) {
   const booleanFields = Object.keys(listField).reduce((acc, field) => {
     acc[field] = Boolean(listField[field]);
     return acc;
@@ -14,9 +14,6 @@ export function valida(listField:ICadastroEmpresa ) {
     const getNotFillFields = transformBoolean.map((item, index) => !item && Object.keys(booleanFields)[index]).filter(item => item);
     return getNotFillFields;
   }
-  // return Object.entries(listField)
-  //   .map(([key, value]) => (!value ? key : undefined))
-  //   .filter(Boolean);
 
   return null;
 }
