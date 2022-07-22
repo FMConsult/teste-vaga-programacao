@@ -6,3 +6,4 @@ export const router = Router();
 const controllerCadastro = new Cadastro();
 
 router.post('/cadastro/', controllerCadastro.create);
+router.get('/', controllerCadastro.getAll);
