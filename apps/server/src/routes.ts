@@ -7,3 +7,4 @@ const controllerCadastro = new Cadastro();
 
 router.post('/cadastro/', controllerCadastro.create);
 router.get('/', controllerCadastro.getAll);
+router.put('/cadastro/:id', controllerCadastro.update);
