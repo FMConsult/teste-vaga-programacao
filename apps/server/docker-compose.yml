@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres
+    container_name: test_db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=test
+    volumes:
+      - test:/data/postgres
+
+volumes:
+  test:
+    driver: local
