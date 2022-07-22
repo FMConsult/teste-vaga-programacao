@@ -1,5 +1,5 @@
 import { ErrorApp } from '~/ErrorApp';
-import { IEmpresaRepository } from '~/repositories/IEmpresaRepository';
+import { IEmpresaRepository } from '~/repositories/IEmpresa';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
@@ -55,6 +55,11 @@ export class CadastroService {
 
     const empresa = await this.EmpresaRepository.create({ cnpj, nomeDaEmpressa, cep, endereco, numero, bairro, uf, cidade });
 
+    return empresa;
+  }
+
+  async getAll() {
+    const empresa = await this.EmpresaRepository.findAll();
     return empresa;
   }
 }
