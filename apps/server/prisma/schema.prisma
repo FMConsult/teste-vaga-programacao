@@ -10,15 +10,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Cadastro {
-  id       Int    @id @default(autoincrement())
-  cnpk     String
-  cep      String
-  endereco String
-  numero   String
-  bairro   String
-  uf       String
-  cidade   String
+model CadastroEmpresa {
+  id             Int    @id @default(autoincrement())
+  cnpj           String
+  nomeDaEmpressa String
+  cep            String
+  endereco       String
+  numero         String
+  bairro         String
+  uf             String
+  cidade         String
 
-  @@map("cadastro")
+  @@map("cadastroEmpresa")
 }
