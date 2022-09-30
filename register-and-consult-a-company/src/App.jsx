@@ -1,12 +1,18 @@
+import { Container, Row, Col } from "react-bootstrap";
 import "./App.css";
+import RegisteredComapanies from "./components/RegisteredCompanies/RegisteredComapanies";
 
 // Compoenent Form
-import Form from "./components/Form/Form";
+import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
+import Teste from "./components/Modal/Modal";
 
 function App() {
 	return (
 		<main>
-			<Form />
+			<Container className="d-flex flex-column gap-5">
+				<RegistrationForm />
+				<RegisteredComapanies />
+			</Container>
 		</main>
 	);
 }

@@ -1,0 +1,26 @@
+{
+  "companies": [
+    {
+      "name": "teste",
+      "cnpj": "00.000.000/0000-000",
+      "cep": "07062-152",
+      "number": "5",
+      "neighborhood": "Parque Santo Antônio",
+      "address": "Rua São José",
+      "city": "Guarulhos",
+      "state": "SP",
+      "id": 2
+    },
+    {
+      "name": "",
+      "cnpj": "",
+      "cep": "07062-152",
+      "number": "5",
+      "neighborhood": "Parque Santo Antônio",
+      "address": "Rua São José",
+      "city": "Guarulhos",
+      "state": "SP",
+      "id": 3
+    }
+  ]
+}
