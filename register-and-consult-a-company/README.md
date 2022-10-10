@@ -21,3 +21,5 @@ Para rodar o projeto, basta clonar o repositório e rodar o comando `npm install
 -   [React-Router-Dom](https://www.npmjs.com/package/react-router-dom)
 -   [Axios](https://www.npmjs.com/package/axios)
 -   [JSON Server](https://www.npmjs.com/package/json-server)
+
+## [Visualizar projeto no YouTube](https://youtu.be/xxEP_KS0sms)
