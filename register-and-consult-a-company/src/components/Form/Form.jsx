@@ -64,12 +64,17 @@ const Form = ({ legend }) => {
 		}
 	}, [values.cep]);
 
+	// useEffect to mask the cnpj and cep fields
+	useEffect(() => {
+		setValues({ ...values, cnpj: cnpjMask(values.cnpj), cep: cepMask(values.cep) });
+	}, [values.cnpj, values.cep]);
+
 	// handleSubmit function to send the form data to the API. If the id is null, it will create a new company, otherwise it will update the company data!
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		// Validate the form
-		if (values.name === "" || values.cnpj === "" || values.cnpj.length < 19 || values.cep === "" || values.cep.length < 9 || values.number === "" || values.address === "" || values.city === "" || values.state === "") {
+		if (values.name === "" || values.cnpj === "" || values.cnpj.length != 18 || values.cep === "" || values.cep.length != 9 || values.number === "" || values.address === "" || values.city === "" || values.state === "") {
 			setMessage("Preencha todos os campos");
 			setVariant("danger");
 
@@ -134,7 +139,7 @@ const Form = ({ legend }) => {
 						<Col sm={12} lg={6} className="mb-3">
 							<FormBs.Group controlId="formCnpj">
 								<FormBs.Label>CNPJ</FormBs.Label>
-								<FormBs.Control type="text" name="cnpj" value={cnpjMask(values.cnpj)} onChange={handleChange} placeholder="00.000.000/0000-00" />
+								<FormBs.Control type="text" name="cnpj" value={values.cnpj} onChange={handleChange} placeholder="00.000.000/0000-00" />
 							</FormBs.Group>
 						</Col>
 					</Row>
@@ -142,7 +147,7 @@ const Form = ({ legend }) => {
 						<Col xs={5} lg={5} className="mb-3">
 							<FormBs.Group controlId="formCep">
 								<FormBs.Label>CEP:</FormBs.Label>
-								<FormBs.Control type="text" name="cep" value={cepMask(values.cep)} onChange={handleChange} placeholder="00000-000" />
+								<FormBs.Control type="text" name="cep" value={values.cep} onChange={handleChange} placeholder="00000-000" />
 								{cepError && <FormBs.Text className="text-danger">CEP não encontrado!</FormBs.Text>}
 							</FormBs.Group>
 						</Col>
