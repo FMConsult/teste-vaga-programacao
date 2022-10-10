@@ -1,4 +1,5 @@
 # Aplicação para cadastro de empresas
+![image](https://user-images.githubusercontent.com/99208505/194787944-090694e8-ab83-45f7-a968-3829b545e07b.png)
 
 ## Sobre
 
