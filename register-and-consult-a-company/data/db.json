@@ -1,0 +1,26 @@
+{
+  "companies": [
+    {
+      "name": "Guarugás",
+      "cnpj": "13.350.928/0001-48",
+      "cep": "07062-152",
+      "number": "5",
+      "address": "Rua São José",
+      "neighborhood": "Parque Santo Antônio",
+      "city": "Guarulhos",
+      "state": "SP",
+      "id": 1
+    },
+    {
+      "name": "Dell",
+      "cnpj": "91.382.127/0001-78",
+      "cep": "07062-000",
+      "number": "1523",
+      "address": "Avenida Torres Tibagy",
+      "neighborhood": "Vila Aprazível",
+      "city": "Guarulhos",
+      "state": "SP",
+      "id": 2
+    }
+  ]
+}
