@@ -30,7 +30,7 @@ Não é obrigatório, mas será um diferencial se conseguir implementar o mecani
 
 Para iniciar o teste, faça um fork deste repositório, crie uma branch com o seu nome completo e depois envie o repositório atualizado com as suas modificações. Se você apenas clonar o repositório não vai conseguir fazer push e depois vai ser mais complicado fazer o processo.
 
-Envie também seu currículo atualizado para o email rh@fmconsult.com.br.
+Envie também seu currículo atualizado para o email filipe@fmconsult.com.br.
 
 ## Nossa análise
 
