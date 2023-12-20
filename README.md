@@ -18,11 +18,19 @@ Você deve desenvolver uma tela de gerenciamento de cadastros de clientes, confo
 
 Não é obrigatório, mas será um diferencial se conseguir implementar o mecanismo de API e gravação em BD
 
+# Tecnologias a serem utilizadas
+
+- PHP
+- MySQL
+- JavaScript (front end)
+- Jade
+- AngularJS (1.x)
+
 ## Entrega
 
 Para iniciar o teste, faça um fork deste repositório, crie uma branch com o seu nome completo e depois envie o repositório atualizado com as suas modificações. Se você apenas clonar o repositório não vai conseguir fazer push e depois vai ser mais complicado fazer o processo.
 
-Envie também seu currículo atualizado para o email luciana@fmconsult.com.br.
+Envie também seu currículo atualizado para o email rh@fmconsult.com.br.
 
 ## Nossa análise
 
