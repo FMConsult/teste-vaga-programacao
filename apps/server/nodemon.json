@@ -1,0 +1,16 @@
+
+{
+  "verbose": false,
+  "quiet": true,
+  "ignore": [
+    "node_modules/*",
+    "dist/*"
+  ],
+  "watch": [
+    "src"
+  ],
+  "ext": "ts env",
+  "execMap": {
+    "ts": "node -r @swc-node/register -r tsconfig-paths/register"
+  }
+}
