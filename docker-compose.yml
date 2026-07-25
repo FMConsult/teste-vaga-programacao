@@ -82,6 +82,8 @@ services:
       S3_ENDPOINT: ${S3_ENDPOINT:-}
       S3_PORT: ${S3_PORT:-443}
       S3_SSL: ${S3_SSL:-true}
+      S3_REGION: ${S3_REGION:-}
+      S3_PUBLIC_CUSTOM_DOMAIN: ${S3_PUBLIC_CUSTOM_DOMAIN:-}
     networks:
       - typebot_network
     # Traefik (opcional) — descomente e ajuste o domínio:
@@ -126,6 +128,8 @@ services:
       S3_ENDPOINT: ${S3_ENDPOINT:-}
       S3_PORT: ${S3_PORT:-443}
       S3_SSL: ${S3_SSL:-true}
+      S3_REGION: ${S3_REGION:-}
+      S3_PUBLIC_CUSTOM_DOMAIN: ${S3_PUBLIC_CUSTOM_DOMAIN:-}
     networks:
       - typebot_network
     # Traefik (opcional) — descomente e ajuste o domínio:
