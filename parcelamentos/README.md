@@ -2,28 +2,43 @@
 
 Converte o controle financeiro em matriz (cartão × mês) para **listagem de lançamentos** ordenada por data de vencimento e cartão.
 
-## Arquivos
+## Arquivo gerado
 
-| Arquivo | Descrição |
+`LISTAGEM - PARCELAMENTOS POR VENCIMENTO.xlsx`
+
+| Aba | Conteúdo |
 |---|---|
-| `LISTAGEM - PARCELAMENTOS POR VENCIMENTO.xlsx` | Planilha gerada (pronta para uso) |
-| `gerar_listagem.py` | Gera a listagem a partir dos dados lidos da captura da planilha original |
-| `converter_planilha.py` | Converte automaticamente um `.xlsx` original no formato matriz |
+| **Lançamentos** | Uma linha por parcela, ordenada por vencimento → cartão → descrição |
+| **Resumo por Vencimento** | Total por data de fatura + cartão |
+| **Por Cartão** | Mesma listagem agrupada por cartão |
+| **Totais Mensais** | Consolidado por mês de referência |
+| **Totais por Cartão** | Soma geral por cartão/empréstimo |
 
-## Abas da planilha gerada
+Colunas: Data Vencimento | Dia | Mês Referência | Cartão | Descrição | Valor (R$)
 
-1. **Lançamentos** — uma linha por parcela (Data Vencimento, Dia, Mês Ref., Cartão, Descrição, Valor), ordenada por vencimento → cartão
-2. **Resumo por Vencimento** — total por data de fatura + cartão
-3. **Por Cartão** — mesma listagem agrupada por cartão
-4. **Totais Mensais** — consolidado por mês de referência
+## Resultado atual
 
-## Como regenerar a partir do arquivo original
+- **242 lançamentos**
+- Período: **10/12/2025 → 11/03/2027**
+- Total geral: **R$ 107.816,50**
+- Totais por cartão/mês conferidos com a planilha original (100% OK)
+
+## Como regenerar
 
 ```bash
-pip install openpyxl
+pip install -r requirements.txt
+python3 gerar_listagem.py
+```
+
+Ou, a partir do `.xlsx` original em formato matriz:
+
+```bash
 python3 converter_planilha.py "/caminho/CONTROLE - PARCELAMENTOS.xlsx"
 ```
 
-## Observação
+## Observações
 
-A listagem atual foi montada a partir da captura da planilha. Itens pouco legíveis na imagem (ex.: compras São Vicente, empréstimos C.C. Kiko, taxas Pague Menos e meses intermediários do Contabo) podem estar incompletos. Para versão 100% fiel, rode o `converter_planilha.py` no `.xlsx` original.
+- A data de vencimento usa o **dia da fatura do cartão** (coluna DIA) + mês/ano da coluna.
+- Empréstimos sem dia de fatura usam dia **1** como referência.
+- Linhas repetidas `EMPREST. C.C. KIKO` e `COMPRA SUP. – N/D` foram numeradas (`#1`, `#2`…) para diferenciar.
+- A linha sem nome no Pague Menos foi rotulada como `COMPRA (SEM DESCRIÇÃO)`.
