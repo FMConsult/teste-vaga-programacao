@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BSC — Plano Quitar Dívidas</title>
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --ink: #1c1a17;
+      --muted: #5c564e;
+      --line: #d9d2c7;
+      --ok: #0d855a;
+      --warn: #9a6b10;
+      --bad: #c04848;
+      --card: #fffdf9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      background: radial-gradient(1200px 600px at 10% -10%, #efe6d8, transparent), var(--bg);
+      color: var(--ink);
+    }
+    main { max-width: 1100px; margin: 0 auto; padding: 40px 24px 64px; }
+    h1 { font-size: 2.2rem; margin: 0 0 .25rem; letter-spacing: -.02em; }
+    .sub { color: var(--muted); margin: 0 0 1.5rem; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 800px) { .grid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.03);
+    }
+    .card h2 { margin: 0 0 .35rem; font-size: 1.15rem; }
+    .card p.lead { margin: 0 0 .8rem; color: var(--muted); font-size: .92rem; }
+    table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+    th, td { padding: .45rem .35rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; }
+    .pill { display: inline-block; padding: .1rem .45rem; border-radius: 999px; font-size: .72rem; font-weight: 700; }
+    .ok { background: #d9f2e7; color: var(--ok); }
+    .warn { background: #fff0d6; color: var(--warn); }
+    .bad { background: #f8dede; color: var(--bad); }
+    .info { background: #e7eef8; color: #2a4d7a; }
+    .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 18px 0 22px; }
+    @media (max-width: 800px) { .kpis { grid-template-columns: 1fr 1fr; } }
+    .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+    .kpi b { display: block; font-size: 1.25rem; }
+    .kpi span { color: var(--muted); font-size: .8rem; }
+    ul { margin: .4rem 0 0 1.1rem; }
+    li { margin: .25rem 0; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Balanced Scorecard</h1>
+  <p class="sub">Filipe &amp; Dayane · FMConsult · out/2026 → jan/2027 · atualizado 04/10/2026</p>
+
+  <div class="kpis">
+    <div class="kpi"><span>Meta dívidas extras</span><b>R$ 32,4k</b></div>
+    <div class="kpi"><span>Reserva viagens</span><b>R$ 15,0k</b></div>
+    <div class="kpi"><span>Acumulado jul→set</span><b>~R$ 4,3k</b></div>
+    <div class="kpi"><span>Lifestyle set (alerta)</span><b>R$ 10,9k</b></div>
+  </div>
+
+  <div class="grid">
+    <section class="card">
+      <h2>1. Financeiro</h2>
+      <p class="lead">Caixa, quitação e reservas.</p>
+      <table>
+        <tr><th>KPI</th><th>Meta</th><th>Status</th></tr>
+        <tr><td>Saldo mensal após extras</td><td>≥ R$ 3.000</td><td><span class="pill warn">atenção</span></td></tr>
+        <tr><td>Escolas zeradas</td><td>jan/2027</td><td><span class="pill info">no prazo</span></td></tr>
+        <tr><td>Poupança Natal+Réveillon</td><td>R$ 15.000</td><td><span class="pill warn">a formar</span></td></tr>
+        <tr><td>Débitos carro</td><td>out/nov/dez separados</td><td><span class="pill info">cronograma</span></td></tr>
+        <tr><td>Dayane CPF limpo</td><td>feito set</td><td><span class="pill ok">ok</span></td></tr>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>2. Negócio / Clientes</h2>
+      <p class="lead">Receita FMConsult que sustenta o plano.</p>
+      <table>
+        <tr><th>KPI</th><th>Meta</th><th>Status</th></tr>
+        <tr><td>Receita mensal</td><td>≥ R$ 45k</td><td><span class="pill ok">set R$ 53k</span></td></tr>
+        <tr><td>Receita recorrente</td><td>≥ 70%</td><td><span class="pill info">monitorar</span></td></tr>
+        <tr><td>Inadimplência clientes</td><td>&lt; 10%</td><td><span class="pill info">monitorar</span></td></tr>
+        <tr><td>Concentração top cliente</td><td>&lt; 40%</td><td><span class="pill warn">revisar</span></td></tr>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>3. Processos internos</h2>
+      <p class="lead">Disciplina de gasto e execução do plano.</p>
+      <table>
+        <tr><th>KPI</th><th>Meta</th><th>Status</th></tr>
+        <tr><td>Lifestyle</td><td>≤ R$ 2.500/mês</td><td><span class="pill bad">set R$ 10,9k</span></td></tr>
+        <tr><td>Extras no mês certo</td><td>100%</td><td><span class="pill info">iniciar out</span></td></tr>
+        <tr><td>Cartão limpo</td><td>não reabrir buraco</td><td><span class="pill warn">vigilância</span></td></tr>
+        <tr><td>Tags Organizze</td><td>≥ 95%</td><td><span class="pill ok">bom</span></td></tr>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2>4. Família e capacidade</h2>
+      <p class="lead">O “porquê” do plano.</p>
+      <table>
+        <tr><th>KPI</th><th>Meta</th><th>Status</th></tr>
+        <tr><td>Matrícula sem débito</td><td>jan/2027</td><td><span class="pill info">no prazo</span></td></tr>
+        <tr><td>Nome Dayane / cartão</td><td>limpo + disciplina</td><td><span class="pill ok">CPF ok</span></td></tr>
+        <tr><td>Viagens fim de ano</td><td>Natal + Litoral</td><td><span class="pill warn">reserva 0→15k</span></td></tr>
+        <tr><td>Carro oficina / aluguel</td><td>sem surpresa</td><td><span class="pill info">planejado</span></td></tr>
+      </table>
+    </section>
+  </div>
+
+  <section class="card" style="margin-top:16px">
+    <h2>Iniciativas out → jan</h2>
+    <ul>
+      <li><b>Out:</b> multas R$ 3.880 + Pedro escola R$ 1.712 + poupança Natal R$ 4.500</li>
+      <li><b>Nov:</b> IPVA R$ 4.205 + UNASP atraso 3 meses (Ana+Rapha) + Pedro + poupança R$ 6.600</li>
+      <li><b>Dez:</b> licenciamento R$ 208 + UNASP atraso 5 meses + Pedro + poupança Ano Novo R$ 3.900 · saque Natal</li>
+      <li><b>Jan:</b> rematrícula limpa · saque Litoral · fechar ciclo</li>
+    </ul>
+  </section>
+</main>
+</body>
+</html>
